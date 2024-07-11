@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,11 +17,27 @@ class _HomePageState extends State<HomePage> {
     _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _appTitle(),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: _bottomNavigationBar(),
+    );
+  }
+
+  Widget _appTitle() {
+    return const Text(
+      'Music App',
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 25,
+        fontWeight: FontWeight.w700,
+      ),
     );
   }
 
