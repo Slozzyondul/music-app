@@ -20,6 +20,32 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
         ),
       ),
+      bottomNavigationBar: _bottomNavigationBar(),
+    );
+  }
+
+  Widget _bottomNavigationBar() {
+    return BottomNavigationBar(
+      items: const [
+        BottomNavigationBarItem(
+          label: 'Home',
+          icon: Icon(
+            Icons.home_filled,
+          ),
+        ),
+        BottomNavigationBarItem(
+          label: 'Search',
+          icon: Icon(
+            Icons.search,
+          ),
+        ),
+        BottomNavigationBarItem(
+          label: 'connect',
+          icon: Icon(
+            Icons.call,
+          ),
+        ),
+      ],
     );
   }
 }
