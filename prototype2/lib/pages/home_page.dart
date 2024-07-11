@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _HomePageState();
@@ -16,12 +17,14 @@ class _HomePageState extends State<HomePage> {
     _deviceHeight = MediaQuery.of(context).size.height;
     _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _appTitle(),
+              _logoImageWidget(),
             ],
           ),
         ),
@@ -34,9 +37,23 @@ class _HomePageState extends State<HomePage> {
     return const Text(
       'Music App',
       style: TextStyle(
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 25,
         fontWeight: FontWeight.w700,
+      ),
+    );
+  }
+
+  Widget _logoImageWidget() {
+    return SizedBox(
+      height: _deviceHeight! * 0.15,
+      width:
+          _deviceWidth! * 0.45, // Width is greater than height to create an oval
+      child: ClipOval(
+        child: Image.asset(
+          'assets/images/logo.png',
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
