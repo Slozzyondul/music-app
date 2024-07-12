@@ -4,67 +4,73 @@ Widget buildInstrumentCard(
     BuildContext context,
     String imageUrl,
     String title,
-    String instrumentName,
+    String subtitle,
     String description,
-    String more,
+    String actionText,
   ) {
     return Container(
-      width: 156,
-      margin: EdgeInsets.only(right: 12),
+      width: 200,
+      margin: EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(imageUrl),
+        ),
+      ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Stack(
-            children: [
-              Container(
-                width: 156,
-                height: 156,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(imageUrl),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              Positioned(
-                left: 16,
-                top: 16,
-                child: Text(
+          Container(
+            padding: EdgeInsets.all(8.0),
+            color: Colors.black54,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
                   title,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: -0.04,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 8),
-          Text(
-            instrumentName,
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              height: 1.4,
-            ),
-          ),
-          SizedBox(height: 4),
-          Text(
-            description,
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              height: 1.4,
-              color: Colors.black.withOpacity(0.5),
+                Text(
+                  subtitle,
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
+                  ),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  description,
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                  ),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  actionText,
+                  style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
-      ),
-    );
+      )
+    );  
   }
 
