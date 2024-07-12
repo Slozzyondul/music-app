@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
+class LandingPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomePageState();
+    return _LandingPageState();
   }
 }
 
-class _HomePageState extends State<HomePage> {
+class _LandingPageState extends State<LandingPage> {
   double? _deviceHeight, _deviceWidth;
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     _deviceHeight = MediaQuery.of(context).size.height;
     _deviceWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
@@ -29,11 +28,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: _bottomNavigationBar(),
     );
   }
 
-  Widget _appTitle() {
+   Widget _appTitle() {
     return const Text(
       'Music App',
       style: TextStyle(
@@ -57,29 +55,5 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  Widget _bottomNavigationBar() {
-    return BottomNavigationBar(
-      items: const [
-        BottomNavigationBarItem(
-          label: 'Home',
-          icon: Icon(
-            Icons.home_filled,
-          ),
-        ),
-        BottomNavigationBarItem(
-          label: 'Search',
-          icon: Icon(
-            Icons.search,
-          ),
-        ),
-        BottomNavigationBarItem(
-          label: 'connect',
-          icon: Icon(
-            Icons.call,
-          ),
-        ),
-      ],
-    );
-  }
 }
+

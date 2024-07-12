@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prototype2/pages/home_page.dart';
+import 'package:prototype2/pages/bottom_navigation.dart';
 
 void main()  async {
   runApp(const MyApp());
