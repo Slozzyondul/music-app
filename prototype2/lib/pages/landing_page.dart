@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prototype2/widgets/drawer_widget.dart';
+import 'package:prototype2/widgets/instrument_card_widget.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -34,17 +35,52 @@ class _LandingPageState extends State<LandingPage> {
         ],
         backgroundColor: Colors.grey,
       ),
-      backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              //_appTitle(),
-              _logoImageWidget(),
-            ],
+      backgroundColor: Colors.brown,
+      body: Stack(
+        children: [
+          Positioned(
+            left: 19,
+            top: 19,
+            child: SizedBox(
+              height: _deviceHeight! * 0.8,
+              width: _deviceWidth! * 0.8,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  buildInstrumentCard(
+                    context,
+                    'assets/images/juri-gianfrancesco-UCEtRnp8qR0-unsplash.jpg',
+                    'Guitar',
+                    'Guitar details here',
+                    'A brief description of the guitar.',
+                  ),
+                  buildInstrumentCard(
+                    context,
+                    'assets/images/simeon-asenov-OuP41yLOi-E-unsplash.jpg',
+                    'Keyboard',
+                    'Keyboard details here',
+                    'A brief description of the keyboard.',
+                  ),
+                  buildInstrumentCard(
+                    context,
+                    'assets/images/pexels-vitória-santos-2922301.jpg',
+                    'Violin',
+                    'Violin details here',
+                    'A brief description of the violin.',
+                  ),
+                  buildInstrumentCard(
+                    context,
+                    'assets/images/pawel-szvmanski-i73F7ma3Q9k-unsplash.jpg',
+                    'Drums',
+                    'Drum details here',
+                    'A brief description of the drums.',
+                  ),
+                ],
+              ),
+            ),
           ),
-        ),
+        ],
+        //child: _logoImageWidget(),
       ),
     );
   }
