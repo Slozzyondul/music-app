@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 Widget buildInstrumentCard(
-    BuildContext context,
-    String imageUrl,
-    String title,
-    String subtitle,
-    String description,
-    String actionText,
-  ) {
-    return Container(
+  BuildContext context,
+  String imageUrl,
+  String title,
+  String description,
+  String actionText,
+) {
+  return Container(
       width: 200,
       margin: EdgeInsets.all(8.0),
       decoration: BoxDecoration(
@@ -43,13 +42,7 @@ Widget buildInstrumentCard(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 14,
-                  ),
-                ),
+                
                 SizedBox(height: 4),
                 Text(
                   description,
@@ -59,18 +52,19 @@ Widget buildInstrumentCard(
                   ),
                 ),
                 SizedBox(height: 4),
-                Text(
-                  actionText,
-                  style: TextStyle(
-                    color: Colors.blueAccent,
-                    fontSize: 12,
+                GestureDetector(
+                  onTap: () {},
+                  child: Text(
+                    actionText,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontSize: 12,
+                    ),
                   ),
                 ),
               ],
             ),
           ),
         ],
-      )
-    );  
-  }
-
+      ));
+}

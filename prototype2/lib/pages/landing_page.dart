@@ -38,6 +38,7 @@ class _LandingPageState extends State<LandingPage> {
       //backgroundColor: Colors.brown,
       body: Column(
         children: [
+          _appDescription(),
           _instrumentScrollRow(),
           _tutorScrollRow(),
         ],
@@ -45,99 +46,96 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
+  Widget _appDescription() {
+    return Padding(
+      
+      padding: const EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: _deviceHeight! * 0.1,
+        width: _deviceWidth! * 1,
+        child: Text(
+          "Welcome to our Music App, your ultimate companion for all things musical!",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _instrumentScrollRow() {
-    return SizedBox(
-      height: _deviceHeight! * 0.4,
-      width: _deviceWidth! * 1,
-      child: GestureDetector(
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            buildInstrumentCard(
-                context,
-                'assets/images/guitar.jpg',
-                'Guitar',
-                'Guitar details here',
-                'A brief description of the guitar.',
-                'Read more...'),
-            buildInstrumentCard(
-                context,
-                'assets/images/keyboard.jpg',
-                'Keyboard',
-                'Keyboard details here',
-                'A brief description of the keyboard.',
-                'Read more...'),
-            buildInstrumentCard(
-                context,
-                'assets/images/violin.jpg',
-                'Violin',
-                'Violin details here',
-                'A brief description of the violin.',
-                'Read more...'),
-            buildInstrumentCard(
-                context,
-                'assets/images/drums.jpg',
-                'Drums',
-                'Drum details here',
-                'A brief description of the drums.',
-                'Read more...'),
-            buildInstrumentCard(
-                context,
-                'assets/images/flute.jpg',
-                'Flute',
-                'Flute details here',
-                'A brief description of the flute.',
-                'Read more...'),
-          ],
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: _deviceHeight! * 0.3,
+        width: _deviceWidth! * 1,
+        child: GestureDetector(
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              buildInstrumentCard(context, 'assets/images/guitar.jpg', 'Guitar',
+                  'Guitar details here', 'Read more...'),
+              buildInstrumentCard(context, 'assets/images/keyboard.jpg',
+                  'Keyboard', 'Keyboard details here', 'Read more...'),
+              buildInstrumentCard(context, 'assets/images/violin.jpg', 'Violin',
+                  'Violin details here', 'Read more...'),
+              buildInstrumentCard(context, 'assets/images/drums.jpg', 'Drums',
+                  'Drum details here', 'Read more...'),
+              buildInstrumentCard(context, 'assets/images/flute.jpg', 'Flute',
+                  'Flute details here', 'Read more...'),
+            ],
+          ),
         ),
       ),
     );
   }
 
   Widget _tutorScrollRow() {
-    return SizedBox(
-      height: _deviceHeight! * 0.4,
-      width: _deviceWidth! * 1,
-      child: GestureDetector(
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            buildInstrumentCard(
-                context,
-                'assets/images/guitar.jpg',
-                'Guitar',
-                'Guitar details here',
-                'A brief description of the guitar.',
-                'Read more...'),
-            buildInstrumentCard(
-                context,
-                'assets/images/keyboard.jpg',
-                'Keyboard',
-                'Keyboard details here',
-                'A brief description of the keyboard.',
-                'Read more...'),
-            buildInstrumentCard(
-                context,
-                'assets/images/violin.jpg',
-                'Violin',
-                'Violin details here',
-                'A brief description of the violin.',
-                'Read more...'),
-            buildInstrumentCard(
-                context,
-                'assets/images/drums.jpg',
-                'Drums',
-                'Drum details here',
-                'A brief description of the drums.',
-                'Read more...'),
-            buildInstrumentCard(
-                context,
-                'assets/images/flute.jpg',
-                'Flute',
-                'Flute details here',
-                'A brief description of the flute.',
-                'Read more...'),
-          ],
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: SizedBox(
+        height: _deviceHeight! * 0.3,
+        width: _deviceWidth! * 1,
+        child: GestureDetector(
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  //Navigator.popAndPushNamed(context, 'contact');
+                },
+                child: buildInstrumentCard(
+                  context,
+                  'assets/images/tutor1.jpg',
+                  'Guitar tutor 1',
+                  'Guitar tutor details',
+                  'Read more...',
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: buildInstrumentCard(
+                  context,
+                  'assets/images/tutor2.jpg',
+                  'Keyboard tutor1',
+                  'Keyboard tutor details here',
+                  'Read more...',
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: buildInstrumentCard(
+                  context,
+                  'assets/images/tutor3.jpg',
+                  'Violin tutor 1',
+                  'Violin tutor details here',
+                  'Read more...',
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

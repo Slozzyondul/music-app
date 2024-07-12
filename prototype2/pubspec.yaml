@@ -66,7 +66,9 @@ flutter:
     - assets/images/violin.jpg
     - assets/images/drums.jpg
     - assets/images/flute.jpg
- 
+    - assets/images/tutor1.jpg
+    - assets/images/tutor2.jpg
+    - assets/images/tutor3.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
