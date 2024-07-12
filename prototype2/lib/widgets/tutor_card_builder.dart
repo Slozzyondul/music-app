@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-class InstrumentCardBuilderWidget {
-  
-}
-Widget buildInstrumentCard(
+Widget buildTutorCard(
   BuildContext context,
   String imageUrl,
   String title,
