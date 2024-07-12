@@ -6,6 +6,7 @@ Widget buildInstrumentCard(
     String title,
     String instrumentName,
     String description,
+    String more,
   ) {
     return Container(
       width: 156,

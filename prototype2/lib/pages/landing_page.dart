@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prototype2/widgets/drawer_widget.dart';
-import 'package:prototype2/widgets/instrument_card_widget.dart';
+import 'package:prototype2/widgets/instrument_card_builder_widget.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -35,56 +35,110 @@ class _LandingPageState extends State<LandingPage> {
         ],
         backgroundColor: Colors.grey,
       ),
-      backgroundColor: Colors.brown,
-      body: Stack(
+      //backgroundColor: Colors.brown,
+      body: Column(
         children: [
-          Positioned(
-            left: 19,
-            top: 19,
-            child: Row(
-              children: [
-                SizedBox(
-                  height: _deviceHeight! * 0.8,
-                  width: _deviceWidth! * 0.8,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      buildInstrumentCard(
-                        context,
-                        'assets/images/guitar.jpg',
-                        'Guitar',
-                        'Guitar details here',
-                        'A brief description of the guitar.',
-                      ),
-                      buildInstrumentCard(
-                        context,
-                        'assets/images/simeon-asenov-OuP41yLOi-E-unsplash.jpg',
-                        'Keyboard',
-                        'Keyboard details here',
-                        'A brief description of the keyboard.',
-                      ),
-                      buildInstrumentCard(
-                        context,
-                        'assets/images/pexels-vitória-santos-2922301.jpg',
-                        'Violin',
-                        'Violin details here',
-                        'A brief description of the violin.',
-                      ),
-                      buildInstrumentCard(
-                        context,
-                        'assets/images/pawel-szvmanski-i73F7ma3Q9k-unsplash.jpg',
-                        'Drums',
-                        'Drum details here',
-                        'A brief description of the drums.',
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
+          _instrumentScrollRow(),
+          _tutorScrollRow(),
         ],
-        //child: _logoImageWidget(),
+      ),
+    );
+  }
+
+  Widget _instrumentScrollRow() {
+    return SizedBox(
+      height: _deviceHeight! * 0.4,
+      width: _deviceWidth! * 1,
+      child: GestureDetector(
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            buildInstrumentCard(
+                context,
+                'assets/images/guitar.jpg',
+                'Guitar',
+                'Guitar details here',
+                'A brief description of the guitar.',
+                'Read more...'),
+            buildInstrumentCard(
+                context,
+                'assets/images/keyboard.jpg',
+                'Keyboard',
+                'Keyboard details here',
+                'A brief description of the keyboard.',
+                'Read more...'),
+            buildInstrumentCard(
+                context,
+                'assets/images/violin.jpg',
+                'Violin',
+                'Violin details here',
+                'A brief description of the violin.',
+                'Read more...'),
+            buildInstrumentCard(
+                context,
+                'assets/images/drums.jpg',
+                'Drums',
+                'Drum details here',
+                'A brief description of the drums.',
+                'Read more...'),
+            buildInstrumentCard(
+                context,
+                'assets/images/flute.jpg',
+                'Flute',
+                'Flute details here',
+                'A brief description of the flute.',
+                'Read more...'),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _tutorScrollRow() {
+    return SizedBox(
+      height: _deviceHeight! * 0.4,
+      width: _deviceWidth! * 1,
+      child: GestureDetector(
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            buildInstrumentCard(
+                context,
+                'assets/images/guitar.jpg',
+                'Guitar',
+                'Guitar details here',
+                'A brief description of the guitar.',
+                'Read more...'),
+            buildInstrumentCard(
+                context,
+                'assets/images/keyboard.jpg',
+                'Keyboard',
+                'Keyboard details here',
+                'A brief description of the keyboard.',
+                'Read more...'),
+            buildInstrumentCard(
+                context,
+                'assets/images/violin.jpg',
+                'Violin',
+                'Violin details here',
+                'A brief description of the violin.',
+                'Read more...'),
+            buildInstrumentCard(
+                context,
+                'assets/images/drums.jpg',
+                'Drums',
+                'Drum details here',
+                'A brief description of the drums.',
+                'Read more...'),
+            buildInstrumentCard(
+                context,
+                'assets/images/flute.jpg',
+                'Flute',
+                'Flute details here',
+                'A brief description of the flute.',
+                'Read more...'),
+          ],
+        ),
       ),
     );
   }

@@ -62,6 +62,10 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/guitar.jpg
+    - assets/images/keyboard.jpg
+    - assets/images/violin.jpg
+    - assets/images/drums.jpg
+    - assets/images/flute.jpg
  
   #   - images/a_dot_ham.jpeg
 
