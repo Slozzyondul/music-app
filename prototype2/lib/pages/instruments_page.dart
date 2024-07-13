@@ -30,7 +30,26 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
         ),
       ),
       body: Column(
-        children: [],
+        children: [
+          _instrumentsDescription(),
+        ],
+      ),
+    );
+  }
+
+  Widget _instrumentsDescription() {
+    return SizedBox(
+      height: _deviceHeight! * 0.1,
+      width: _deviceWidth! * 1,
+      child: Center(
+        child: Text(
+          "Instruments",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
     );
   }
