@@ -17,18 +17,21 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.grey,
         title: Center(
           child: Text(
-              'Instruments',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 25,
-                fontWeight: FontWeight.w700,
-              ),
+            'Music App',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 25,
+              fontWeight: FontWeight.w700,
             ),
+          ),
         ),
       ),
-      backgroundColor: Colors.yellowAccent,
+      body: Column(
+        children: [],
+      ),
     );
   }
 }

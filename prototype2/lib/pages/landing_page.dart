@@ -41,8 +41,8 @@ class _LandingPageState extends State<LandingPage> {
           _scrollControllerInstruments.jumpTo(0); // Reset to start
         } else {
           _scrollControllerInstruments.animateTo(
-            _scrollControllerInstruments.offset + 10000.0, // Increase scroll amount
-            duration: Duration(seconds: 5), // Adjust duration
+            _scrollControllerInstruments.offset + 100000.0, // Increase scroll amount
+            duration: Duration(seconds: 30), // Adjust duration
             curve: Curves.linear,
           );
         }
@@ -59,7 +59,7 @@ class _LandingPageState extends State<LandingPage> {
         } else {
           _scrollControllerTutor.animateTo(
             _scrollControllerTutor.offset + 10000.0, // Increase scroll amount
-            duration: Duration(seconds: 5), // Adjust duration
+            duration: Duration(seconds: 20), // Adjust duration
             curve: Curves.linear,
           );
         }
@@ -79,7 +79,7 @@ class _LandingPageState extends State<LandingPage> {
           child: Text(
             'Music App',
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 25,
               fontWeight: FontWeight.w700,
             ),
