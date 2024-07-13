@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AllTutorsPage extends StatefulWidget {
+class ClientProfilePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _AllTutorsPage();
+    return _ClientProfilePage();
   }
 }
 
-class _AllTutorsPage extends State<AllTutorsPage> {
+class _ClientProfilePage extends State<ClientProfilePage> {
   double? _deviceHeight, _deviceWidth;
 
   @override
@@ -19,7 +19,7 @@ class _AllTutorsPage extends State<AllTutorsPage> {
       appBar: AppBar(
         title: Center(
           child: Text(
-              'Tutors',
+              'Profile',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,
@@ -28,7 +28,7 @@ class _AllTutorsPage extends State<AllTutorsPage> {
             ),
         ),
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.blue,
     );
   }
 }

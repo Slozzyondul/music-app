@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prototype2/pages/settings.dart';
 import 'package:prototype2/pages/instruments_page.dart';
 import 'package:prototype2/pages/tutors_page.dart';
 
@@ -9,30 +10,38 @@ Widget buildPopupMenu(BuildContext context) {
         case 'Instruments':
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AllInstrumentsPage()),
+            MaterialPageRoute(
+              builder: (context) => AllInstrumentsPage(),
+            ),
           );
           break;
-         case 'Tutors':
-           Navigator.push(
-             context,
-             MaterialPageRoute(builder: (context) => AllTutorsPage()),
-           );
-           break;
-        // case 'Settings':
-        //   Navigator.push(
-        //     context,
-        //     MaterialPageRoute(builder: (context) => SettingsPage()),
-        //   );
-        //   break;
+        case 'Tutors':
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AllTutorsPage(),
+            ),
+          );
+          break;
+        case 'Settings':
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ClientProfilePage(),
+            ),
+          );
+          break;
       }
     },
     itemBuilder: (BuildContext context) {
-      return {'Instruments', 'Tutors', 'Settings'}.map((String choice) {
-        return PopupMenuItem<String>(
-          value: choice,
-          child: Text(choice),
-        );
-      }).toList();
+      return {'Instruments', 'Tutors', 'Settings'}.map(
+        (String choice) {
+          return PopupMenuItem<String>(
+            value: choice,
+            child: Text(choice),
+          );
+        },
+      ).toList();
     },
   );
 }

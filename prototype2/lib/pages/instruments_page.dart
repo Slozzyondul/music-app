@@ -28,6 +28,7 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
             ),
         ),
       ),
+      backgroundColor: Colors.yellowAccent,
     );
   }
 }
