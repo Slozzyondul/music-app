@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prototype2/pages/instruments_page.dart';
 import 'package:prototype2/widgets/drawer_widget.dart';
 import 'package:prototype2/widgets/instrument_card_builder_widget.dart';
 import 'package:prototype2/widgets/tutor_card_builder.dart';
+import 'dart:async';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -12,6 +14,58 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   double? _deviceHeight, _deviceWidth;
+  ScrollController _scrollControllerInstruments = ScrollController();
+  ScrollController _scrollControllerTutor = ScrollController();
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startAutoScrollInstruments();
+    _startAutoScrollTutor();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    _scrollControllerInstruments.dispose();
+    _scrollControllerTutor.dispose();
+    super.dispose();
+  }
+
+  void _startAutoScrollInstruments() {
+    _timer = Timer.periodic(Duration(milliseconds: 50), (timer) {
+      if (_scrollControllerInstruments.hasClients) {
+        if (_scrollControllerInstruments.position.pixels >=
+            _scrollControllerInstruments.position.maxScrollExtent) {
+          _scrollControllerInstruments.jumpTo(0); // Reset to start
+        } else {
+          _scrollControllerInstruments.animateTo(
+            _scrollControllerInstruments.offset + 10000.0, // Increase scroll amount
+            duration: Duration(seconds: 5), // Adjust duration
+            curve: Curves.linear,
+          );
+        }
+      }
+    });
+  }
+
+  void _startAutoScrollTutor() {
+    _timer = Timer.periodic(Duration(milliseconds: 50), (timer) {
+      if (_scrollControllerTutor.hasClients) {
+        if (_scrollControllerTutor.position.pixels >=
+            _scrollControllerTutor.position.maxScrollExtent) {
+          _scrollControllerTutor.jumpTo(0); // Reset to start
+        } else {
+          _scrollControllerTutor.animateTo(
+            _scrollControllerTutor.offset + 10000.0, // Increase scroll amount
+            duration: Duration(seconds: 5), // Adjust duration
+            curve: Curves.linear,
+          );
+        }
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +103,8 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
-  
-
   Widget _appDescription() {
     return Padding(
-      
       padding: const EdgeInsets.all(10.0),
       child: SizedBox(
         height: _deviceHeight! * 0.1,
@@ -88,24 +139,37 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   Widget _instrumentScrollRow() {
-    return SizedBox(
-      height: _deviceHeight! * 0.2,
-      width: _deviceWidth! * 1,
-      child: GestureDetector(
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            buildInstrumentCard(context, 'assets/images/guitar.jpg', 'Guitar',
-                'Guitar details here', 'Read more...'),
-            buildInstrumentCard(context, 'assets/images/keyboard.jpg',
-                'Keyboard', 'Keyboard details here', 'Read more...'),
-            buildInstrumentCard(context, 'assets/images/violin.jpg', 'Violin',
-                'Violin details here', 'Read more...'),
-            buildInstrumentCard(context, 'assets/images/drums.jpg', 'Drums',
-                'Drum details here', 'Read more...'),
-            buildInstrumentCard(context, 'assets/images/flute.jpg', 'Flute',
-                'Flute details here', 'Read more...'),
-          ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AllInstrumentsPage()),
+        );
+      },
+      child: SizedBox(
+        height: _deviceHeight! * 0.2,
+        width: _deviceWidth! * 2,
+        child: GestureDetector(
+          child: ListView(
+            controller: _scrollControllerInstruments,
+            scrollDirection: Axis.horizontal,
+            children: [
+              buildInstrumentCard(
+                context,
+                'assets/images/guitar.jpg',
+                'Guitar',
+                'Guitar details here',
+              ),
+              buildInstrumentCard(context, 'assets/images/keyboard.jpg',
+                  'Keyboard', 'Keyboard details here'),
+              buildInstrumentCard(context, 'assets/images/violin.jpg', 'Violin',
+                  'Violin details here'),
+              buildInstrumentCard(context, 'assets/images/drums.jpg', 'Drums',
+                  'Drum details here'),
+              buildInstrumentCard(context, 'assets/images/flute.jpg', 'Flute',
+                  'Flute details here'),
+            ],
+          ),
         ),
       ),
     );
@@ -134,6 +198,7 @@ class _LandingPageState extends State<LandingPage> {
       width: _deviceWidth! * 1,
       child: GestureDetector(
         child: ListView(
+          controller: _scrollControllerTutor,
           scrollDirection: Axis.horizontal,
           children: [
             GestureDetector(

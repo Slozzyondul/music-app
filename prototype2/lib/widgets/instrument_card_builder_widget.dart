@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-class InstrumentCardBuilderWidget {
-  
-}
+class InstrumentCardBuilderWidget {}
+
 Widget buildInstrumentCard(
   BuildContext context,
   String imageUrl,
   String title,
   String description,
-  String actionText,
 ) {
   return Container(
     width: 200,
@@ -51,17 +49,6 @@ Widget buildInstrumentCard(
                 style: TextStyle(
                   color: Colors.white70,
                   fontSize: 12,
-                ),
-              ),
-              SizedBox(height: 4),
-              GestureDetector(
-                onTap: () {},
-                child: Text(
-                  actionText,
-                  style: TextStyle(
-                    color: Colors.blueAccent,
-                    fontSize: 12,
-                  ),
                 ),
               ),
             ],
