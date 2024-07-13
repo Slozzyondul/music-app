@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AllInstrumentsPage extends StatefulWidget {
+class AllTutorsPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _AllInstrumentsPage();
+    return _AllTutorsPage();
   }
 }
 
-class _AllInstrumentsPage extends State<AllInstrumentsPage> {
+class _AllTutorsPage extends State<AllTutorsPage> {
   double? _deviceHeight, _deviceWidth;
 
   @override
@@ -19,7 +19,7 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
       appBar: AppBar(
         title: Center(
           child: Text(
-              'Instruments',
+              'Tutors',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,

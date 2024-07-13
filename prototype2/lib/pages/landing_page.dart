@@ -32,7 +32,7 @@ class _LandingPageState extends State<LandingPage> {
           ),
         ),
         actions: [
-          buildPopupMenu(),
+          buildPopupMenu(context),
         ],
         backgroundColor: Colors.grey,
       ),
