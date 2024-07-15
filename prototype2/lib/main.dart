@@ -3,8 +3,14 @@ import 'package:prototype2/pages/bottom_navigation.dart';
 import 'package:prototype2/pages/contact_page.dart';
 import 'package:prototype2/pages/instruments_page.dart';
 import 'package:prototype2/pages/search_page.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main()  async {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Hive.initFlutter();
+  await Hive.openBox('profileBox');
+
   runApp(const MyApp());
 }
 
@@ -21,9 +27,9 @@ class MyApp extends StatelessWidget {
       initialRoute: 'home',
       routes: {
         'home': (context) => const HomePage(),
-        'contact' : (context) => ContactPage(),
-        'search' : (context) => SearchPage(),
-        'instruments' : (context) => AllInstrumentsPage(),
+        'contact': (context) => ContactPage(),
+        'search': (context) => SearchPage(),
+        'instruments': (context) => AllInstrumentsPage(),
       },
     );
   }

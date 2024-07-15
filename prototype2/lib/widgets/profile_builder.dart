@@ -4,17 +4,18 @@ class InfoRow extends StatelessWidget {
   final String title;
   final String info;
   final bool isBio;
-  final Function()? onTap;
+  final VoidCallback onTap;
 
-  InfoRow(
-      {required this.title,
-      required this.info,
-      this.isBio = false,
-      this.onTap});
+  InfoRow({
+    required this.title,
+    required this.info,
+    this.isBio = false,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
