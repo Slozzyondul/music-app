@@ -55,37 +55,36 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
     );
   }
 
- Widget _instrumentsGridView() {
-  List<String> instruments = [
-    'assets/images/drums.jpg',
-    'assets/images/flute.jpg',
-    'assets/images/guitar.jpg',
-    'assets/images/keyboard.jpg',
-    'assets/images/violin.jpg',
-  ];
+  Widget _instrumentsGridView() {
+    List<String> instruments = [
+      'assets/images/drums.jpg',
+      'assets/images/flute.jpg',
+      'assets/images/guitar.jpg',
+      'assets/images/keyboard.jpg',
+      'assets/images/violin.jpg',
+    ];
 
-  return Expanded(
-    child: GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 1,
-        //mainAxisSpacing: 1,
-        //crossAxisSpacing: 1,
+    return Expanded(
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
+          //mainAxisSpacing: 1,
+          //crossAxisSpacing: 1,
+        ),
+        itemCount: instruments.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset(
+                instruments[index],
+                height: _deviceHeight! * 0.5,
+                width: _deviceWidth! * 2,
+              ),
+            ],
+          );
+        },
       ),
-      itemCount: instruments.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.asset(
-              instruments[index],
-              height: _deviceHeight! * 0.5,
-              width: _deviceWidth! * 2,
-            ),
-          ],
-        );
-      },
-    ),
-  );
-}
-
+    );
+  }
 }

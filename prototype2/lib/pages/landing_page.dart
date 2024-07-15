@@ -41,7 +41,8 @@ class _LandingPageState extends State<LandingPage> {
           _scrollControllerInstruments.jumpTo(0); // Reset to start
         } else {
           _scrollControllerInstruments.animateTo(
-            _scrollControllerInstruments.offset + 100000.0, // Increase scroll amount
+            _scrollControllerInstruments.offset +
+                1000.0, // Increase scroll amount
             duration: Duration(seconds: 30), // Adjust duration
             curve: Curves.linear,
           );
@@ -58,7 +59,7 @@ class _LandingPageState extends State<LandingPage> {
           _scrollControllerTutor.jumpTo(0); // Reset to start
         } else {
           _scrollControllerTutor.animateTo(
-            _scrollControllerTutor.offset + 10000.0, // Increase scroll amount
+            _scrollControllerTutor.offset + 1000.0, // Increase scroll amount
             duration: Duration(seconds: 20), // Adjust duration
             curve: Curves.linear,
           );
