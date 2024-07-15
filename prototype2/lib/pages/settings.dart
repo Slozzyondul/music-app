@@ -14,6 +14,18 @@ class _ClientProfilePage extends State<ClientProfilePage> {
   double? _deviceHeight, _deviceWidth;
   File? _profileImage;
 
+  String name = 'Helena Hills';
+  String username = '@username';
+  String phoneNumber = 'client phone number';
+  String email = 'name@domain.com';
+  String instruments = 'instruments instructor knows';
+  String location = 'where he is located';
+  String clients = 'current clients working with';
+  String rate = 'tutor charges per hour';
+  String availability = 'calendar free days';
+  String bio =
+      'A description of qualification, experience and reviews of the tutor';
+
   @override
   Widget build(BuildContext context) {
     _deviceHeight = MediaQuery.of(context).size.height;
@@ -86,26 +98,93 @@ class _ClientProfilePage extends State<ClientProfilePage> {
   Widget _profileInformataion() {
     return Column(
       children: [
-        InfoRow(title: 'Name', info: 'Helena Hills'),
-        InfoRow(title: 'Username', info: '@username'),
-        InfoRow(title: 'Phone number', info: 'client phone number'),
-        InfoRow(title: 'Email', info: 'name@domain.com'),
-        InfoRow(title: 'Instruments', info: 'instruments instructor knows'),
-        InfoRow(title: 'Location', info: 'where he is located'),
-        InfoRow(title: 'Clients', info: 'current clients working with'),
-        InfoRow(title: 'Rate', info: 'tutor charges per hour'),
-        InfoRow(title: 'Availability', info: 'calendar free days'),
         InfoRow(
-          title: 'Lessons',
-          info: 'passed linked sample lessons',
-        ),
+            title: 'Name',
+            info: name,
+            onTap: () => _editField(
+                'Name', name, (value) => setState(() => name = value))),
         InfoRow(
-          title: 'Bio',
-          info:
-              'A description of qualification, experience and reviews of the tutor',
-          isBio: true,
-        ),
+            title: 'Username',
+            info: username,
+            onTap: () => _editField('Username', username,
+                (value) => setState(() => username = value))),
+        InfoRow(
+            title: 'Phone number',
+            info: phoneNumber,
+            onTap: () => _editField('Phone number', phoneNumber,
+                (value) => setState(() => phoneNumber = value))),
+        InfoRow(
+            title: 'Email',
+            info: email,
+            onTap: () => _editField(
+                'Email', email, (value) => setState(() => email = value))),
+        InfoRow(
+            title: 'Instruments',
+            info: instruments,
+            onTap: () => _editField('Instruments', instruments,
+                (value) => setState(() => instruments = value))),
+        InfoRow(
+            title: 'Location',
+            info: location,
+            onTap: () => _editField('Location', location,
+                (value) => setState(() => location = value))),
+        InfoRow(
+            title: 'Clients',
+            info: clients,
+            onTap: () => _editField('Clients', clients,
+                (value) => setState(() => clients = value))),
+        InfoRow(
+            title: 'Rate',
+            info: rate,
+            onTap: () => _editField(
+                'Rate', rate, (value) => setState(() => rate = value))),
+        InfoRow(
+            title: 'Availability',
+            info: availability,
+            onTap: () => _editField('Availability', availability,
+                (value) => setState(() => availability = value))),
+        InfoRow(
+            title: 'Bio',
+            info: bio,
+            isBio: true,
+            onTap: () =>
+                _editField('Bio', bio, (value) => setState(() => bio = value))),
       ],
+    );
+  }
+
+  void _editField(String field, String initialValue, Function(String) onSaved) {
+    TextEditingController controller =
+        TextEditingController(text: initialValue);
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Edit $field'),
+          content: TextField(
+            controller: controller,
+            decoration: InputDecoration(
+              hintText: 'Enter $field',
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                onSaved(controller.text);
+                Navigator.of(context).pop();
+              },
+              child: Text('Save'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
