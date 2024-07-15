@@ -79,7 +79,7 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
             Image.asset(
               instruments[index],
               height: _deviceHeight! * 0.5,
-              width: _deviceWidth! * 1,
+              width: _deviceWidth! * 2,
             ),
           ],
         );
