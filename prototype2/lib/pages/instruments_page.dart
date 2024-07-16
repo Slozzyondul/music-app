@@ -48,7 +48,7 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -67,7 +67,7 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
     return Expanded(
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
+          crossAxisCount: 3,
           //mainAxisSpacing: 1,
           //crossAxisSpacing: 1,
         ),
