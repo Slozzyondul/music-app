@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
-class InstrumentDetailPage extends StatelessWidget {
+class TutorDetailPage extends StatelessWidget {
   final String name;
   final String imagePath;
   final String details;
-  final List<String> tutors;
 
-  InstrumentDetailPage({
+  TutorDetailPage({
     required this.name,
     required this.imagePath,
     required this.details,
-    required this.tutors,
   });
 
   @override
@@ -57,16 +55,6 @@ class InstrumentDetailPage extends StatelessWidget {
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
               ),
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: tutors.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text(tutors[index]),
-                );
-              },
             ),
           ),
         ],

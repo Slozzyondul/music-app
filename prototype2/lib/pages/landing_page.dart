@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prototype2/pages/instruments_page.dart';
+import 'package:prototype2/pages/tutors_page.dart';
 import 'package:prototype2/widgets/drawer_widget.dart';
 import 'package:prototype2/widgets/instrument_card_builder_widget.dart';
 import 'package:prototype2/widgets/tutor_card_builder.dart';
@@ -194,47 +195,41 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   Widget _tutorScrollRow() {
-    return SizedBox(
-      height: _deviceHeight! * 0.2,
-      width: _deviceWidth! * 1,
-      child: GestureDetector(
-        child: ListView(
-          controller: _scrollControllerTutor,
-          scrollDirection: Axis.horizontal,
-          children: [
-            GestureDetector(
-              onTap: () {
-                //Navigator.popAndPushNamed(context, 'contact');
-              },
-              child: buildTutorCard(
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AllTutorsPage()),
+        );
+      },
+      child: SizedBox(
+        height: _deviceHeight! * 0.2,
+        width: _deviceWidth! * 1,
+        child: GestureDetector(
+          child: ListView(
+            controller: _scrollControllerTutor,
+            scrollDirection: Axis.horizontal,
+            children: [
+              buildTutorCard(
                 context,
                 'assets/images/tutor1.jpg',
                 'Guitar tutor 1',
                 'Guitar tutor details',
-                'Read more...',
               ),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: buildTutorCard(
+              buildTutorCard(
                 context,
                 'assets/images/tutor2.jpg',
                 'Keyboard tutor1',
                 'Keyboard tutor details here',
-                'Read more...',
               ),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: buildTutorCard(
+              buildTutorCard(
                 context,
                 'assets/images/tutor3.jpg',
                 'Violin tutor 1',
                 'Violin tutor details here',
-                'Read more...',
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
