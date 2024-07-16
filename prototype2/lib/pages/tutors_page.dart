@@ -90,9 +90,6 @@ class _AllTutorsPage extends State<AllTutorsPage> {
             tutors[index]['image']!,
             tutors[index]['details']!,
           );
-          // } else {
-          //   return SizedBox
-          //       .shrink(); // Return an empty widget if index is out of bounds
         },
       ),
     );
@@ -132,6 +129,13 @@ class _AllTutorsPage extends State<AllTutorsPage> {
               color: Colors.black,
               fontSize: 16,
               fontWeight: FontWeight.w600,
+            ),
+          ),
+          Text(
+            details,
+            style: TextStyle(
+              color: Colors.black54,
+              fontSize: 12,
             ),
           ),
         ],
