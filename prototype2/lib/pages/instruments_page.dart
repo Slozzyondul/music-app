@@ -69,51 +69,47 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
     return Expanded(
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          mainAxisSpacing: 1,
-          crossAxisSpacing: 1,
+          crossAxisCount: 2,
+          mainAxisSpacing: 2,
+          crossAxisSpacing: 2,
         ),
         itemCount: instruments.length,
         itemBuilder: (BuildContext context, int index) {
-          return _instrument1Container();
+          return _instrumentContainer(
+            instruments[index]['name']!,
+            instruments[index]['image']!,
+          );
         },
       ),
     );
   }
 
-  Widget _instrument1Container() {
-    return Stack(
+  Widget _instrumentContainer(String name, String imagePath) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _drumImage(),
-        _instrumentName(),
-        _instrumentDetails(),
+        Image.asset(
+          imagePath,
+          height: _deviceHeight! * 0.2,
+          width: _deviceWidth! * 0.4,
+          fit: BoxFit.cover,
+        ),
+        Text(
+          name,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        Text(
+          'Instrument Details',
+          style: TextStyle(
+            color: Colors.black54,
+            fontSize: 12,
+          ),
+        ),
       ],
     );
-  }
-
-  Widget _drumImage() {
-    return SizedBox(
-      height: _deviceHeight! * 0.45,
-      width: _deviceWidth! * 0.45,
-      child: Image.asset(
-        'assets/images/drums.jpg',
-        fit: BoxFit.cover,
-      ),
-    );
-  }
-
-  Widget _instrumentName() {
-    return Text(
-      'Drums',
-      style: TextStyle(
-        color: Colors.black,
-        fontSize: 20,
-        fontWeight: FontWeight.w700,
-      ),
-    );
-  }
-
-  Widget _instrumentDetails() {
-    return Text('Instrument Details');
   }
 }
