@@ -57,12 +57,31 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
 
   Widget _instrumentsGridView() {
     List<Map<String, String>> instruments = [
-      {'name': 'Drums', 'image': 'assets/images/drums.jpg'},
-      {'name': 'flute', 'image': 'assets/images/flute.jpg'},
-      {'name': 'guitar', 'image': 'assets/images/guitar.jpg'},
-      {'name': 'piano', 'image': 'assets/images/keyboard.jpg'},
-      {'name': 'violin', 'image': 'assets/images/violin.jpg'},
-
+      {
+        'name': 'Drums',
+        'image': 'assets/images/drums.jpg',
+        'details': 'Percussion instrument'
+      },
+      {
+        'name': 'Flute',
+        'image': 'assets/images/flute.jpg',
+        'details': 'Woodwind instrument'
+      },
+      {
+        'name': 'Guitar',
+        'image': 'assets/images/guitar.jpg',
+        'details': 'String instrument'
+      },
+      {
+        'name': 'Piano',
+        'image': 'assets/images/keyboard.jpg',
+        'details': 'Keyboard instrument'
+      },
+      {
+        'name': 'Violin',
+        'image': 'assets/images/violin.jpg',
+        'details': 'String instrument'
+      },
       // Add more instruments as needed
     ];
 
@@ -78,13 +97,14 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
           return _instrumentContainer(
             instruments[index]['name']!,
             instruments[index]['image']!,
+            instruments[index]['details']!,
           );
         },
       ),
     );
   }
 
-  Widget _instrumentContainer(String name, String imagePath) {
+  Widget _instrumentContainer(String name, String imagePath, String details) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -103,7 +123,7 @@ class _AllInstrumentsPage extends State<AllInstrumentsPage> {
           ),
         ),
         Text(
-          'Instrument Details',
+          details,
           style: TextStyle(
             color: Colors.black54,
             fontSize: 12,
