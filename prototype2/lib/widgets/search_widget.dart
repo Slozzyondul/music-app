@@ -34,13 +34,13 @@ class _SearchWidgetState extends State<SearchWidget> {
             onPressed: () {
               widget.onSearch(_controller.text);
             },
-            child: Icon(Icons.search),
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.all(16.0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
+            child: Icon(Icons.search),
           ),
         ],
       ),
